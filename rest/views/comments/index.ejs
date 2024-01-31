@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,18 +75,25 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Comments</h1>
     <ul>
         <% for(let comment of comments) { %>
             <li>
                 <div class="comment-details">
-                    <p class="comment-text"><%= comment.text %></p>
-                    <p class="comment-username">By: <%= comment.username %></p>
+                    <p class="comment-text">
+                        <%= comment.text %>
+                    </p>
+                    <p class="comment-username">By: <%= comment.username %>
+                    </p>
                 </div>
-                <a href="/comments/<%= comment.id %>" class="comment-button">Detail</a>
+                <div>
+                    <a href="/comments/<%= comment.id %>" class="comment-button">Detail</a>
+                    <a href="/comments/<%= comment.id %>/edit" class="comment-button">Edit</a>
+                </div>
             </li>
-        <% } %>
+            <% } %>
     </ul>
     <a href="/comments/create" class="add-comment-button">Add comment</a>
     <div id="add-comment-form" style="display: none;">
@@ -109,4 +117,5 @@
         });
     </script>
 </body>
+
 </html>
