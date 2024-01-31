@@ -53,6 +53,7 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            margin-right: 10px;
         }
 
         .comment-button:hover {
@@ -89,8 +90,11 @@
                     </p>
                 </div>
                 <div>
-                    <a href="/comments/<%= comment.id %>" class="comment-button">Detail</a>
-                    <a href="/comments/<%= comment.id %>/edit" class="comment-button">Edit</a>
+                    <button class="comment-button" onclick="window.location.href='/comments/<%= comment.id %>'">Detail</button>
+                    <button class="comment-button" onclick="window.location.href='/comments/<%= comment.id %>/edit'">Edit</button>
+                    <form action="/comments/<%= comment.id %>?_method=DELETE" method="post" style="display: inline;">
+                        <button class="comment-button" type="submit">Delete</button>
+                    </form>
                 </div>
             </li>
             <% } %>
