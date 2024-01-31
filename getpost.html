@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>HTTP Request</h1><hr><br>
+        <h3>GET Form</h3>
+        <form action="http://localhost:8080/order" method="GET">
+            <div class="form-group">
+                <label for="item">Item:</label>
+                <input type="text" class="form-control" name="item" id="item">
+            </div>
+            <div class="form-group">
+                <label for="qty">Quantity:</label>
+                <input type="number" class="form-control" name="qty" id="qty">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form><br><br>
+
+        <h3>POST Form</h3>
+        <form action="http://localhost:8080/order" method="POST">
+            <div class="form-group">
+                <label for="item">Item:</label>
+                <input type="text" class="form-control" name="item" id="item">
+            </div>
+            <div class="form-group">
+                <label for="qty">Quantity:</label>
+                <input type="number" class="form-control" name="qty" id="qty">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
