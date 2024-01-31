@@ -9,22 +9,27 @@ app.set('view engine', 'ejs');
 
 const comments = [
     {
+        id: 1,
         username: 'Luke',
         text: `Sometimes I'll start a sentence and I don't even know where it's going. I just hope I find it along the way.`
     },
     {
+        id: 2,
         username: 'Michael',
         text: `Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.`
     },
     {
+        id: 3,
         username: 'Dwight',
         text: `I am running away from my responsibilities. And it feels good.`
     },
     {
+        id: 4,
         username: 'Jim',
         text: `Bears. Beets. Battlestar Galactica.`
     },
     {
+        id: 5,
         username: 'Pam',
         text: `I don't understand the question, and I won't respond to it.`
     }
@@ -42,6 +47,12 @@ app.post('/comments', (req, res) => {
     const { username, text } = req.body;
     comments.push({ username, text });
     res.redirect('/comments');
+});
+
+app.get('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === parseInt(id));
+    res.render('comments/show', { comment });
 });
 
 app.get('/order', (req, res) => {

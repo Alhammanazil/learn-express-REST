@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h3>Comment id: <%= comment.id %></h3>
+    <p><%= comment.text %> - <%= comment.username %></p>
+    <button class="back-button" onclick="window.location.href='/comments'">Back</button>
+</body>
+</html>

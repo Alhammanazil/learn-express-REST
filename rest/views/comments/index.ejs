@@ -28,15 +28,34 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
         }
 
-        a {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
+        .comment-details {
+            flex-grow: 1;
+        }
+
+        .comment-text {
+            margin-bottom: 5px;
+        }
+
+        .comment-username {
+            color: #888;
+        }
+
+        .comment-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
             text-decoration: none;
-            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .comment-button:hover {
+            background-color: #555;
         }
 
         .add-comment-button {
@@ -47,6 +66,7 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            margin-top: 20px;
         }
 
         .add-comment-button:hover {
@@ -58,9 +78,35 @@
     <h1>Comments</h1>
     <ul>
         <% for(let comment of comments) { %>
-            <li> <%= comment.text %> - <%= comment.username %> </li>
+            <li>
+                <div class="comment-details">
+                    <p class="comment-text"><%= comment.text %></p>
+                    <p class="comment-username">By: <%= comment.username %></p>
+                </div>
+                <a href="/comments/<%= comment.id %>" class="comment-button">Detail</a>
+            </li>
         <% } %>
     </ul>
     <a href="/comments/create" class="add-comment-button">Add comment</a>
+    <div id="add-comment-form" style="display: none;">
+        <h2>Add Comment</h2>
+        <form action="/comments" method="POST">
+            <label for="comment-text">Comment:</label>
+            <textarea id="comment-text" name="text" rows="4" cols="50"></textarea>
+            <br>
+            <label for="comment-username">Username:</label>
+            <input type="text" id="comment-username" name="username">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        const addCommentButton = document.querySelector('.add-comment-button');
+        const addCommentForm = document.getElementById('add-comment-form');
+
+        addCommentButton.addEventListener('click', () => {
+            addCommentForm.style.display = 'block';
+        });
+    </script>
 </body>
 </html>
