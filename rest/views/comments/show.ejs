@@ -43,8 +43,10 @@
     </style>
 </head>
 <body>
-    <h3>Comment id: <%= comment.id %></h3>
-    <p><%= comment.text %> - <%= comment.username %></p>
+    <% if (comment) { %>
+        <h3>Comment id: <%= comment.id %></h3>
+        <p><%= comment.text %> - <%= comment.username %></p>
+    <% } %>
     <button class="back-button" onclick="window.location.href='/comments'">Back</button>
 </body>
 </html>
