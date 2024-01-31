@@ -41,7 +41,7 @@ app.get('/comments/create', (req, res) => {
 app.post('/comments', (req, res) => {
     const { username, text } = req.body;
     comments.push({ username, text });
-    res.send('it works!')
+    res.redirect('/comments');
 });
 
 app.get('/order', (req, res) => {
@@ -49,13 +49,14 @@ app.get('/order', (req, res) => {
 });
 
 app.post('/order', (req, res) => {
-    const {item, qty} = req.body;
+    const { item, qty } = req.body;
     res.send(`Item:${item} - Qty:${qty}`);
 });
 
 app.get('/', (req, res) => {
     console.log('Server is running on http://localhost:8080');
 });
+
 
 app.listen(8080, () => {
     console.log('Server is running on http://localhost:8080');
