@@ -34,6 +34,16 @@ app.get('/comments', (req, res) => {
     res.render('comments/index', { comments });
 });
 
+app.get('/comments/create', (req, res) => {
+    res.render('comments/create');
+});
+
+app.post('/comments', (req, res) => {
+    const { username, text } = req.body;
+    comments.push({ username, text });
+    res.send('it works!')
+});
+
 app.get('/order', (req, res) => {
     res.send('GET order response');
 });

@@ -1,0 +1,5 @@
+GET /comments - list all comments
+POST/comments - create a new comment
+GET /comments/:id - get ome comment by id
+PATCH/PUT /comments/:id - update one comment
+DELETE /comments/:id - delete one comment
